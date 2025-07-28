@@ -20,17 +20,32 @@ Technical for clearing.com
 
 Before running this application, make sure you have:
 
+**Option 1: Local Development**
 - **Node.js** (≥20.0.0)
 - **npm** (≥10.0.0)
+- **PostgreSQL** database
+
+**Option 2: Docker Development (Recommended)**
+- **Docker** (≥20.0.0)
+- **Docker Compose** (≥2.0.0)
 
 ## 🚀 Getting Started
 
-### 1. Backend Setup
+### Option 1: Docker Setup (Recommended)
+
+The easiest way to get started is using Docker (if setup on your machine):
 
 ```bash
-cd backend
-npm i
+docker compose up -d
 ```
+
+
+
+### Option 2: Local Development Setup
+
+If you prefer to run without Docker:
+
+#### 1. Backend Setup
 
 ```bash
 cd backend
@@ -67,7 +82,7 @@ npm run start:dev
 
 The API will be available at `http://localhost:3000`
 
-### 2. Frontend Setup
+#### 2. Frontend Setup
 
 In another terminal start frontend
 ```bash
