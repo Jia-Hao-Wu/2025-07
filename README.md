@@ -20,18 +20,18 @@ Technical for clearing.com
 
 Before running this application, make sure you have:
 
-**Option 1: Local Development**
+**Option 1: Docker Development**
+- **Docker** (≥20.0.0)
+- **Docker Compose** (≥2.0.0)
+
+**Option 2: Local Development**
 - **Node.js** (≥20.0.0)
 - **npm** (≥10.0.0)
 - **PostgreSQL** database
 
-**Option 2: Docker Development (Recommended)**
-- **Docker** (≥20.0.0)
-- **Docker Compose** (≥2.0.0)
-
 ## 🚀 Getting Started
 
-### Option 1: Docker Setup (Recommended)
+### Option 1: Docker Setup
 
 The easiest way to get started is using Docker (if setup on your machine):
 
