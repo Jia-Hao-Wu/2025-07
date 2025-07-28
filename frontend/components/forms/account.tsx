@@ -146,7 +146,7 @@ export default function AccountForm({ account, isLoading, handleClose }: { handl
   };
 
   return (
-    <Box sx={{ mx: 'auto', mt: 4, width: '100%' }}>
+    <Box sx={{ maxWidth: 600, mx: 'auto', mt: 4 }}>
       <Card>
         <CardHeader title={account ? account.name : "Create New Account"} />
         <CardContent>
@@ -198,21 +198,21 @@ export default function AccountForm({ account, isLoading, handleClose }: { handl
             />
 
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
-              <Button
+              {handleClose && <Button
                 type="button"
                 variant="outlined"
                 onClick={handleClose}
                 disabled={loading}
               >
                 Cancel
-              </Button>
+              </Button>}
               <Button
                 type="submit"
                 variant="contained"
                 disabled={loading}
                 startIcon={loading ? <CircularProgress size={20} /> : null}
               >
-                {loading ? 'Creating...' : 'Create Account'}
+                {account ? 'Save' : 'Create Account'}
               </Button>
             </Box>
           </Box>

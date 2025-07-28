@@ -32,7 +32,9 @@ export default function Index() {
       {loading ?
         <CircularProgress /> :
         <>
-          <AccountForm account={account} isLoading={loading} />
+          <Box sx={{ display: 'block', justifyContent: 'center', mb: 2 }}>
+            <AccountForm account={account} isLoading={loading} />
+          </Box>
           <PaymentsTable />
         </>
       }

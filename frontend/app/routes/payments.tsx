@@ -5,7 +5,7 @@ import type { Account } from './accounts';
 import type { GridRowId } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { useSnackbarContext } from 'store/snackbar';
-import { Select, MenuItem, FormControl, Box, Button, Modal } from '@mui/material';
+import { Select, MenuItem, FormControl, Box, Button, Modal, CardHeader, Typography } from '@mui/material';
 import PaymentForm, { type Payment } from 'components/forms/payment';
 import { useParams } from 'react-router';
 
@@ -60,9 +60,8 @@ export default function Index() {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <h2>Payments</h2>
+        <Typography variant='h5' fontWeight="bold">Payments</Typography>
         <Button
-          sx={{ fontSize: 'small', fontWeight: 'bold' }}
           variant="contained"
           startIcon={<AddIcon />}
           onClick={() => setOpen(true)}
@@ -83,7 +82,7 @@ export default function Index() {
 
       <Table<Payment>
         columns={[
-          { field: 'id', headerName: 'ID', width: 20 },
+          { field: 'id', headerName: 'ID', width: 10 },
           { field: 'amount', headerName: 'Amount', flex: 1 },
           { field: 'notes', headerName: 'Notes', flex: 1 },
           {
@@ -93,7 +92,6 @@ export default function Index() {
                 <MenuItem value="APPROVED">Approved</MenuItem>
               </Select>
             )
-            ,
           },
           { field: 'Account', headerName: 'Account Name', flex: 1, valueGetter: ({ name }: Account) => name },
           { field: 'recipientName', headerName: 'Recipient\'s Name', flex: 1 },
