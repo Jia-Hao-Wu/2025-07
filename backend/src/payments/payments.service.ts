@@ -6,12 +6,19 @@ import { Payment, Prisma } from '@prisma/client';
 export class PaymentsService {
   constructor(private prisma: PrismaService) { }
 
-  async getPayments({ skip, take }: { skip?: number; take?: number } = {}): Promise<Payment[]> {
-    return await this.prisma.payment.findMany({ skip, take })
+  async getPayments({ skip, take, accountId }: { skip?: number; take?: number; accountId?: number } = {}): Promise<Payment[]> {
+    return await this.prisma.payment.findMany({
+      skip,
+      take,
+      where: {
+        accountId
+      },
+      include: { Account: true }
+    });
   }
 
   async getPayment({ id }: { id: number }): Promise<Payment | null> {
-    return await this.prisma.payment.findUnique({ where: { id } });
+    return await this.prisma.payment.findUnique({ where: { id }, include: { Account: true } });
   }
 
   async createPayment({ accountId, data }: { accountId: number; data: Prisma.PaymentCreateInput }): Promise<Payment> {
@@ -20,16 +27,19 @@ export class PaymentsService {
         ...data,
         Account: {
           connect: { id: accountId }
-        
         }
       }
     });
   }
 
-  async updatePayment({ id, data }: { 
-    id: number; 
-    data: Prisma.PaymentUpdateInput 
+  async updatePayment({ id, data }: {
+    id: number;
+    data: Prisma.PaymentUpdateInput
   }): Promise<Payment> {
     return await this.prisma.payment.update({ where: { id }, data });
+  }
+
+  async getTotal(): Promise<number> {
+    return await this.prisma.payment.count();
   }
 }

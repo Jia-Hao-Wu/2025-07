@@ -2,11 +2,12 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
-import { Outlet, useLocation } from 'react-router';
+import { Outlet, useLocation, Link } from 'react-router';
 
 const drawerWidth = 240;
 
 const navigationItems = [
+  { label: 'Home', link: '/'},
   { label: 'Accounts', link: '/accounts'},
   { label: 'Payments', link: '/payments'},
 ]
@@ -31,7 +32,11 @@ export default function LayoutDrawer() {
         <List>
           {navigationItems.map(({ label, link }) => (
             <ListItem disablePadding key={label}>
-              <ListItemButton href={link} selected={location.pathname == link}>
+              <ListItemButton 
+                component={Link} 
+                to={link} 
+                selected={location.pathname === link}
+              >
                 <ListItemText primary={label} />
               </ListItemButton>
             </ListItem>
@@ -40,8 +45,9 @@ export default function LayoutDrawer() {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.gray', p: 3 }}
+        sx={{ flexGrow: 1, p: 3 }}
       >
+        {/* {children} */}
         <Outlet />
       </Box>
     </Box>

@@ -20,10 +20,14 @@ export class AccountsService {
     return await this.prisma.account.findUnique({ where: { id } });
   }
 
-  async updateAccount({ id, data }: { 
-    id: number; 
-    data: Prisma.AccountUpdateInput 
+  async updateAccount({ id, data }: {
+    id: number;
+    data: Prisma.AccountUpdateInput
   }): Promise<Account> {
     return await this.prisma.account.update({ where: { id }, data });
+  }
+
+  async getTotal(): Promise<number> {
+    return await this.prisma.account.count();
   }
 }

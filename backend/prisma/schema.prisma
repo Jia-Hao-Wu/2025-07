@@ -29,11 +29,14 @@ model Account {
 }
 
 model Payment {
-  id     Int     @id @default(autoincrement())
-  amount Float
-  notes  String?
-  accountId Int
+  id                     Int           @id @default(autoincrement())
+  amount                 Float
+  accountId              Int
+  recipientName          String
+  recipientBankName      String
+  recipientAccountNumber String
+  status                 PaymentStatus @default(PENDING)
+  notes                  String?
 
-  status  PaymentStatus @default(PENDING)
-  Account Account       @relation(fields: [accountId], references: [id])
+  Account Account @relation(fields: [accountId], references: [id])
 }

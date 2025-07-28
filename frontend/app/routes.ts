@@ -1,8 +1,10 @@
 import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
 
 export default [
-  layout('./layouts/layout.tsx', [
+  layout('layout.tsx', [
+    index("./routes/index.tsx"),
     route("accounts", "./routes/accounts/index.tsx"),
-    route("payments", "./routes/payments/index.tsx")
+    route("accounts/:accountId", "./routes/accounts/account.tsx"),
+    route("payments", "./routes/payments.tsx")
   ])
 ] satisfies RouteConfig;
