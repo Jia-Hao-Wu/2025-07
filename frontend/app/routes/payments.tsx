@@ -1,13 +1,15 @@
-import Table, { type TablePaginationModel } from 'components/table';
+import { useState } from 'react';
+import { useParams } from 'react-router';
 import { Add as AddIcon } from '@mui/icons-material';
+import type { GridRowId } from '@mui/x-data-grid';
+import { Select, MenuItem, Box, Button, Modal, Typography } from '@mui/material';
+
 import { api } from '~/api';
 import type { Account } from './accounts';
-import type { GridRowId } from '@mui/x-data-grid';
-import { useState } from 'react';
-import { useSnackbarContext } from 'store/snackbar';
-import { Select, MenuItem, FormControl, Box, Button, Modal, CardHeader, Typography } from '@mui/material';
-import PaymentForm, { type Payment } from 'components/forms/payment';
-import { useParams } from 'react-router';
+import { useSnackbarContext } from '~/store/snackbar';
+import Table, { type TablePaginationModel } from '~/components/table';
+import PaymentForm, { type Payment } from '~/components/forms/payment';
+
 
 export default function Index() {
 
@@ -51,6 +53,7 @@ export default function Index() {
     if (response.ok) {
       setRefresh(prev => prev + 1);
       setSnackbar("Payment status updated successfully");
+      return;
     }
 
     setLoading(false);

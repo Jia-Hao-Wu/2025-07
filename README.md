@@ -38,6 +38,7 @@ The easiest way to get started is using Docker (if setup on your machine):
 ```bash
 docker compose up -d
 ```
+The application will be available at `http://localhost:5173/accounts`
 
 
 
@@ -119,13 +120,13 @@ The application uses the following main entities:
 - `GET /accounts` - List all accounts
 - `GET /accounts/:id` - Get account by ID
 - `POST /accounts` - Create new account
-- `PUT /accounts/:id` - Update account
+- `PATCH /accounts/:id` - Update account
 
 ### Payments
 - `GET /payments` - List all payments
 - `GET /payments/:id` - Get payment by ID
 - `POST /payments` - Create new payment
-- `PUT /payments/:id` - Update payment
+- `PATCH /payments/:id` - Update payment
 
 ## 🧪 Testing
 

@@ -1,10 +1,11 @@
+import { useState } from 'react';
+import { Link } from 'react-router';
 import { Box, Button, Modal, IconButton } from '@mui/material';
 import { Add as AddIcon, Edit as EditIcon } from '@mui/icons-material';
-import Table, { type TablePaginationModel } from 'components/table';
-import { useState } from 'react';
+
 import { api } from '~/api';
-import AccountForm, { type Account } from 'components/forms/account';
-import { Link } from 'react-router';
+import Table, { type TablePaginationModel } from '~/components/table';
+import AccountForm, { type Account } from '~/components/forms/account';
 
 export default function Index() {
   const [loading, setLoading] = useState(true);

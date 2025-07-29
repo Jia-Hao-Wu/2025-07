@@ -39,7 +39,11 @@ export class PaymentsService {
     return await this.prisma.payment.update({ where: { id }, data });
   }
 
-  async getTotal(): Promise<number> {
-    return await this.prisma.payment.count();
+  async getTotal({ accountId }: { accountId?: number }): Promise<number> {
+    return await this.prisma.payment.count({
+      where: {
+        accountId
+      }
+    });
   }
 }

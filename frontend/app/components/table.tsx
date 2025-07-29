@@ -1,9 +1,12 @@
-
-import Paper from '@mui/material/Paper';
-import type { GridRowParams } from '@mui/x-data-grid';
-import { DataGrid, type GridColDef, type DataGridProps } from 'node_modules/@mui/x-data-grid';
 import { useEffect, useState } from 'react';
-import { useSnackbarContext } from 'store/snackbar';
+import {
+  DataGrid,
+  type GridColDef,
+  type DataGridProps
+} from 'node_modules/@mui/x-data-grid';
+import Paper from '@mui/material/Paper';
+
+import { useSnackbarContext } from '~/store/snackbar';
 
 type TableProps<T> = {
   columns: GridColDef[];
@@ -45,7 +48,7 @@ export default function Table<T>({ columns = [], fetchAPI, refresh, loading = tr
       <DataGrid
         disableColumnFilter
         disableColumnSorting
-        disableRowSelectionOnClick 
+        disableRowSelectionOnClick
         rows={rows}
         paginationMode='server'
         columns={columns}

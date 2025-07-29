@@ -13,7 +13,7 @@ export class PaymentsController {
       take: parseInt(take, 10),
       accountId: accountId ? parseInt(accountId, 10) : undefined,
     });
-    const total = await this.paymentsService.getTotal();
+    const total = await this.paymentsService.getTotal({ accountId: accountId ? parseInt(accountId, 10) : undefined });
     return { data, total };
   }
 

@@ -1,8 +1,9 @@
-import { Box, CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { api } from '~/api';
-import AccountForm, { type Account } from 'components/forms/account';
 import { useParams } from 'react-router';
+import { Box, CircularProgress } from '@mui/material';
+
+import { api } from '~/api';
+import AccountForm, { type Account } from '~/components/forms/account';
 import PaymentsTable from '../payments';
 
 export default function Index() {
